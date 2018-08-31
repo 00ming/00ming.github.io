@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="浏览器缓存浏览器缓存分为两种，分别为 强缓存（也称本地缓存） 和 协商缓存（也称弱缓存）。 对于强缓存和协商缓存，判定过程如下： 浏览器加载资源时，先根据 response 的 header 中某些字段判断是否命中强缓存，若命中，浏览器直接从缓存中读取资源，不会发送请求到服务器。当强缓存没有命中的时候，浏览器一定会发送一个请求到服务器，此时服务器根据 resquest 的 header 中某些字段">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器缓存">
+<meta property="og:url" content="00ming.github.io/2018/08/29/缓存/index.html">
+<meta property="og:site_name" content="0.0ming的闲情日志">
+<meta property="og:description" content="浏览器缓存浏览器缓存分为两种，分别为 强缓存（也称本地缓存） 和 协商缓存（也称弱缓存）。 对于强缓存和协商缓存，判定过程如下： 浏览器加载资源时，先根据 response 的 header 中某些字段判断是否命中强缓存，若命中，浏览器直接从缓存中读取资源，不会发送请求到服务器。当强缓存没有命中的时候，浏览器一定会发送一个请求到服务器，此时服务器根据 resquest 的 header 中某些字段">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://pbyegcye6.bkt.clouddn.com/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E5%8D%B4%E4%BB%8E%E7%A1%AC%E7%9B%98%E8%AF%BB%E7%BC%93%E5%AD%98.png">
+<meta property="og:updated_time" content="2018-08-29T08:09:48.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浏览器缓存">
+<meta name="twitter:description" content="浏览器缓存浏览器缓存分为两种，分别为 强缓存（也称本地缓存） 和 协商缓存（也称弱缓存）。 对于强缓存和协商缓存，判定过程如下： 浏览器加载资源时，先根据 response 的 header 中某些字段判断是否命中强缓存，若命中，浏览器直接从缓存中读取资源，不会发送请求到服务器。当强缓存没有命中的时候，浏览器一定会发送一个请求到服务器，此时服务器根据 resquest 的 header 中某些字段">
+<meta name="twitter:image" content="http://pbyegcye6.bkt.clouddn.com/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E5%8D%B4%E4%BB%8E%E7%A1%AC%E7%9B%98%E8%AF%BB%E7%BC%93%E5%AD%98.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="00ming.github.io/2018/08/29/缓存/"/>
+
+
+
+
+
+  <title>浏览器缓存 | 0.0ming的闲情日志</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">0.0ming的闲情日志</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="00ming.github.io/2018/08/29/缓存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="0.0ming">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="0.0ming的闲情日志">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浏览器缓存</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-29T16:02:10+08:00">
+                2018-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h1><p>浏览器缓存分为两种，分别为 <strong>强缓存</strong>（也称本地缓存） 和 <strong>协商缓存</strong>（也称弱缓存）。</p>
+<p>对于强缓存和协商缓存，判定过程如下：</p>
+<p>浏览器加载资源时，先根据 response 的 header 中某些字段判断是否命中强缓存，若命中，浏览器直接从缓存中读取资源，不会发送请求到服务器。<br>当强缓存没有命中的时候，浏览器一定会发送一个请求到服务器，此时服务器根据 resquest 的 header 中某些字段判断是否命中协商缓存，若命中，服务器返回请求，但不会返回这个资源的数据，而是告诉客户端可以直接从缓存中加载这个资源。<br>对于强缓存和协商缓存，共同点在于，若命中，它们都是从客户端缓存中加载资源，而不是从服务器加载资源数据；而不同点在于，强缓存不发请求到服务器，协商缓存会发请求到服务器以咨询缓存是否过期。</p>
+<a id="more"></a>
+<h5 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h5><p>强缓存是利用 http 头中的 Expires 和 Cache-Control 两个字段来控制的，用来表示资源的缓存时间。<br>强缓存中，普通刷新会忽略它，但不会清除它；而强制刷新，请求会带上 Cache-Control:no-cache 和 Pragma:no-cache。</p>
+<h5 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h5><p>简而言之，协商缓存就是想服务器发送请求以咨询本地缓存是否可用。<br>协商缓存主要涉及两组 header 字段： Etag 和 If-None-Match、Last-Modified 和 If-Modified-Since.</p>
+<p>普通刷新会启用协商缓存，忽略强缓存。只有在地址栏或收藏夹输入网址、通过链接引用资源等情况下，浏览器才会启用强缓存，这也是为什么有时候我们更新一张图片、一个 js 文件，页面内容依然是旧的，但是直接浏览器访问那个图片或文件，看到的内容却是新的。<br>相关请求头下文有详细介绍</p>
+<h3 id="iframe"><a href="#iframe" class="headerlink" title="iframe"></a>iframe</h3><p>iframe算是个历史问题,比较早期的网站使用 iframe，主要是用于导航栏（navigator）。因为一个网站很多页面的导航栏部分是相同的，在避免切换页面的时候重复下载，将导航栏和正文分开在 iframe 中，是一个方便的做法。同时带来的不利是，默认情况下，使用了 iframe 的网站的 URL 不会随着页面的变化而变化。<br><a href="https://www.zhihu.com/question/20653055/answer/15751248" target="_blank" rel="noopener">参考</a></p>
+<p><img src="http://pbyegcye6.bkt.clouddn.com/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E5%8D%B4%E4%BB%8E%E7%A1%AC%E7%9B%98%E8%AF%BB%E7%BC%93%E5%AD%98.png" alt="image"></p>
+<p>这个iframe里内嵌的一个页面,==采用的协商缓存的策略,可是却直接从硬盘(disk)里面获取缓存,并没有与服务器校对,直接返回200而不是304==.这样会造成服务器上的文件已经被修改过了,但是浏览器显示的文件却不是最新的.对于这样的情况,下文提供了一些解决办法希望给遇到同样问题的人提供参考.</p>
+<h1 id="缓存相关请求头"><a href="#缓存相关请求头" class="headerlink" title="缓存相关请求头"></a>缓存相关请求头</h1><h4 id="Expires"><a href="#Expires" class="headerlink" title="Expires"></a>Expires</h4><p>Expires的值为服务端返回的到期时间，即下一次请求时，请求时间小于服务端返回的到期时间，直接使用缓存数据。<br>不过Expires 是HTTP 1.0的东西，现在默认浏览器均默认使用HTTP 1.1，所以它的作用基本忽略。<br>另一个问题是，到期时间是由服务端生成的，但是客户端时间可能跟服务端时间有误差，这就会导致缓存命中的误差。<br>所以HTTP 1.1 的版本，使用Cache-Control替代。</p>
+<h4 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h4><ul>
+<li>private:         客户端可以缓存</li>
+<li>public:              客户端和代理服务器都可缓存</li>
+<li>max-age=xxx:   缓存的内容将在 xxx 秒后失效</li>
+<li>no-cache:          需要使用对比缓存来验证缓存数据</li>
+<li>no-store:           所有内容都不会缓存，强制缓存，对比缓存都不会触发</li>
+</ul>
+<h4 id="last-modified-和-If-Modify-Since"><a href="#last-modified-和-If-Modify-Since" class="headerlink" title="last-modified 和 If-Modify-Since"></a>last-modified 和 If-Modify-Since</h4><p>服务器在响应请求时，告诉浏览器资源的最后修改时间。<br>其执行过程如下：</p>
+<p> 1.当第一次发起 HTTP 请求时，服务器 response 的 header 中包含 Last-Modify ，标明该资源的最后修改时间，如：<code>Mon, 16 Jul 2018 11:14:47 GMT</code></p>
+<p>2.当再次发起 HTTP 请求时，客户端 requset 的 header 中包含 If-Modify-Since 字段，该值为缓存之前服务器返回的 Last-Modify 的值，服务器收到 If-Modify-Since 后，根据资源的最后修改时间判断是否命中缓存。</p>
+<p>3.如果命中缓存，则返回 304 ，并且不会返回资源内容，并且不会返回 Last-Modify </p>
+<h3 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h3><p>服务器响应请求时，告诉浏览器当前资源在服务器的唯一标识（生成规则由服务器决定）。<br>既然有了last-modified 和 If-Modify-Since来让浏览器知道本地的缓存副本是否足够新那为什么需要Etag呢?<br>那是因为Last-Modified 标注的最后修改只能精确到秒级，如果某些文件在 1 秒钟以内，被修改多次的话，它将不能准确标注文件的修改时间.</p>
+<p>此外,Etag是可以跟Last-Modified一起使用的,服务器会优先验证ETag，一致的情况下，才会继续比对Last-Modified，最后才决定是否返回304。</p>
+<h3 id="If-None-Match"><a href="#If-None-Match" class="headerlink" title="If-None-Match"></a>If-None-Match</h3><p>再次请求服务器时，通过此字段通知服务器客户段缓存数据的唯一标识。<br>服务器收到请求后发现有头If-None-Match 则与被请求资源的唯一标识进行比对，<br>不同，说明资源又被改动过，则响应整片资源内容，返回状态码200；<br>相同，说明资源无新修改，则响应HTTP 304，告知浏览器继续使用所保存的cache。</p>
+<h1 id="页面缓存的一些解决方法"><a href="#页面缓存的一些解决方法" class="headerlink" title="页面缓存的一些解决方法"></a>页面缓存的一些解决方法</h1><h2 id="比较简单解决方法"><a href="#比较简单解决方法" class="headerlink" title="比较简单解决方法"></a>比较简单解决方法</h2><p>在html文件加入mate标签 控制请求头 对chrome浏览器无效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;META HTTP-EQUIV=&quot;pragma&quot; CONTENT=&quot;no-cache&quot;&gt; </span><br><span class="line">&lt;META HTTP-EQUIV=&quot;Cache-Control&quot; CONTENT= &quot;no-cache, must-revalidate&quot;&gt; </span><br><span class="line">&lt;META HTTP-EQUIV=&quot;expires&quot; CONTENT= &quot;Wed, 26 Feb 1997 08:21:57 GMT&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="另一解决方法-未实践"><a href="#另一解决方法-未实践" class="headerlink" title="另一解决方法(未实践)"></a>另一解决方法(未实践)</h2><p>根据协强缓存策略:强缓存是利用 http 头中的 Expires 和 Cache-Control 两个字段来控制的，用来表示资源的缓存时间<br>只需要在nginx反向代理的时候加<code>Cache-Control:no-cache</code>和<code>Pragma:no-cache</code> 这两个请求头就能清除缓存,通过合理设置<code>expires</code>缓存时间就能很好的合理运用缓存<br><a href="http://www.nginx.cn/doc/standard/httpheaders.html" target="_blank" rel="noopener">修改方法</a></p>
+<h2 id="目前使用解决办法"><a href="#目前使用解决办法" class="headerlink" title="目前使用解决办法"></a>目前使用解决办法</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>浏览器为了提高用户访问同一页面的速度，会对页面数据进行缓存。当url请求地址不变时，有时候会导致浏览器不发送请求，直接从缓存中读取之前的数据。如果数据改变了，而没加随机数，读取的数据会跟之前一样。加上随机数，就是欺骗浏览器url改变了，会每次都向服务器发送请求而不去读缓存。</p>
+<p>除了随机数以外还能在在ULR后面加上者<strong>版本号</strong> 和 <strong>文件的md5</strong><br>用md5的话每次修改后都会改变 保证每次都能获取修改后的资源,包括CDN 随机数每次都变化浪费请求的资源 版本号在两者之间CDN更新会不同步</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>百度一搜”版本防缓存”基本都是加版本号和md5的,加随机数的比较少.其实缓存是必须的,如果每次都要从服务器获取资源的话,会影响用户的体验.一是HTTP 1.0 和1.1的最大并发连接数是6左右 (不同浏览器有差异),二是建立连接到获取数据需要时间.要运用好缓存,而不是一味的强制缓存或者禁止缓存.这样才能收益最大化.</p>
+<h4 id="通过插件添加md5码来防止缓存"><a href="#通过插件添加md5码来防止缓存" class="headerlink" title="通过插件添加md5码来防止缓存"></a>通过插件添加md5码来防止缓存</h4><p><em>下面讲的跟浏览器无关,只是用工具批量加?v=(md5)来解决ifame强制缓存的问题,有需要的朋友可以参考</em></p>
+<p>grunt和gulp都是基于task的前端构建工具这里我用的是 <strong>gulp</strong><br>因为要改的项目历史比较久远,本身并没有什么自动化的工具,也不敢改动太多所以机缘巧合下选了这个工具.</p>
+<p>引用下面3个文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var rev = require(&apos;gulp-rev&apos;);</span><br><span class="line">var revFormat = require(&apos;gulp-rev-Format&apos;);</span><br><span class="line">var revReplace = require(&apos;gulp-rev-replace&apos;);</span><br><span class="line">var replace = require(&apos;gulp-replace&apos;);</span><br></pre></td></tr></table></figure></p>
+<p>前面3个是提取文件对应md5码并且格式化<br>最后一个是替换到对应URL后面</p>
+<p>被提取出来的文件对应的md5会被保存在<code>./app/rev-manifest.json</code>文件里,内容类如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;Activity_CheckInfo2.html&quot;: &quot;Activity_CheckInfo2.259348dacd.cache.html&quot;,</span><br><span class="line">  &quot;Activity_Definition.html&quot;: &quot;Activity_Definition.22d05704c3.cache.html&quot;,</span><br><span class="line">  .......</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>本来插件的功能是将文件名由 <code>A.html</code>改为 <code>A.(md5).html</code>,这显然与我现在在URL后加<code>?t=(md5)</code>的实践不符,所以我对<code>task</code>进行加工加上<code>.cache</code>来识别md5到哪结束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;rev&apos;, () =&gt; &#123;</span><br><span class="line">  gulp.src([&apos;pc_member/**/*.js&apos;, &apos;pc_member/**/*.css&apos;, &apos;pc_member/views/*.html&apos;, &apos;pc_member/views/info/*.html&apos;, &apos;pc_member/views/logs/*.html&apos;, &apos;pc_member/views/statistics/*.html&apos;, &apos;pc_member/views/system/*.html&apos;, &apos;pc_member/views/activity/*.html&apos;])</span><br><span class="line">    .pipe(rev())</span><br><span class="line">    .pipe(revFormat(&#123;</span><br><span class="line">      prefix: &apos;.&apos;, // 在版本号前增加字符  </span><br><span class="line">      suffix: &apos;.cache&apos;, // 在版本号后增加字符  </span><br><span class="line">      lastExt: false</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(rev.manifest(&#123;</span><br><span class="line">      merge: true // merge with the existing manifest (if one exists)</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(&quot;app/&quot;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>整理出要用的结构以后就可以提取出来替换进html里面了<br>上面提到加<code>.cache</code>是为了正则运行更方便的提取中间那段md5<br>提取出来后通过<code>gulp-revReplace</code>插件替换到html文件里面就好了<br>详细的讲解在第二篇参考文章里面有详细描叙 我这里去掉了部分我不需要的组件更为精简.<br>想详细了解的可以前去浏览<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(&apos;add-version&apos;, [&apos;rev&apos;], function () &#123;</span><br><span class="line">  var manifest = gulp.src([&quot;./app/rev-manifest.json&quot;]);</span><br><span class="line"></span><br><span class="line">  function modifyUnreved(filename) &#123;</span><br><span class="line">    return filename;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function modifyReved(filename) &#123;</span><br><span class="line">    // filename是：admin.69cef10fff.cache.css的一个文件名  </span><br><span class="line">    // 在这里才发现刚才用gulp-rev-format的作用了吧？就是为了做正则匹配，  </span><br><span class="line">    if (filename.indexOf(&apos;.cache&apos;) &gt; -1) &#123;</span><br><span class="line">      // 通过正则和relace得到版本号：69cef10fff  </span><br><span class="line">      const _version = filename.match(/\.[\w]*\.cache/)[0].replace(/(\.|cache)*/g, &quot;&quot;);</span><br><span class="line">      // 把版本号和gulp-rev-format生成的字符去掉，剩下的就是原文件名：admin.css  </span><br><span class="line">      const _filename = filename.replace(/\.[\w]*\.cache/, &quot;&quot;);</span><br><span class="line">      // 重新定义文件名和版本号：admin.css?v=69cef10fff  </span><br><span class="line">      filename = _filename + &quot;?v=&quot; + _version;</span><br><span class="line">      // 返回由gulp-rev-replace替换文件名  </span><br><span class="line">      return filename;</span><br><span class="line">    &#125;</span><br><span class="line">    return filename;</span><br><span class="line">  &#125;</span><br><span class="line">  gulp.src([&apos;pc_member/**/*.html&apos;])</span><br><span class="line">  // 删除原来的版本   </span><br><span class="line">    .pipe(replace(/(\.[a-z]+)\?(v=)[^\&apos;\&quot;\&amp;]*/g, &quot;$1&quot;))</span><br><span class="line">    .pipe(replace(/(\.[a-z]+)\?[^\&apos;\&quot;\&amp;]*/g, function (match) &#123;</span><br><span class="line">      var res = match.replace(&apos;?&apos;, &apos;&amp;&apos;);</span><br><span class="line">      return res;</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(revReplace(&#123;</span><br><span class="line">      manifest: manifest,</span><br><span class="line">      modifyUnreved: modifyUnreved,</span><br><span class="line">      modifyReved: modifyReved</span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(&apos;dist/&apos;))</span><br><span class="line">    .pipe(connect.reload());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>参考网址:</p>
+<p><a href="http://obkoro1.com/2018/06/09/%E6%B5%85%E6%9E%90HTTP%E7%BC%93%E5%AD%98%E7%9A%84%E6%9C%BA%E5%88%B6-%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/" target="_blank" rel="noopener">浅析HTTP缓存的机制-浏览器缓存 | OBKoro1’s Blog</a></p>
+<p><a href="https://hexo.bangz.me/archives/http-cache-tutorial.html" target="_blank" rel="noopener">HTTP 缓存机制（强缓存与协商缓存） | BangZ’s 梦工厂</a></p>
+<p><a href="https://www.cnblogs.com/wonyun/p/5524617.html" target="_blank" rel="noopener">http协商缓存VS强缓存 - wonyun - 博客园</a></p>
+<p><a href="https://blog.csdn.net/zchcode/article/details/52421871" target="_blank" rel="noopener">前端静态资源版本更新与缓存之——通过gulp 在原html文件上自动化添加js、css版本号 - CSDN博客</a></p>
+<p><a href="https://segmentfault.com/a/1190000010315249" target="_blank" rel="noopener">gulp进阶：文件号自动添加MD5后缀的三种方法与坑位提醒 - 个人文章 - SegmentFault 思否</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/30/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">0.0ming</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器缓存"><span class="nav-number">1.</span> <span class="nav-text">浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#强缓存"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">强缓存</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#协商缓存"><span class="nav-number">1.0.0.0.2.</span> <span class="nav-text">协商缓存</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#iframe"><span class="nav-number">1.0.1.</span> <span class="nav-text">iframe</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#缓存相关请求头"><span class="nav-number">2.</span> <span class="nav-text">缓存相关请求头</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Expires"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">Expires</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cache-Control"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">Cache-Control</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#last-modified-和-If-Modify-Since"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">last-modified 和 If-Modify-Since</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Etag"><span class="nav-number">2.0.1.</span> <span class="nav-text">Etag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#If-None-Match"><span class="nav-number">2.0.2.</span> <span class="nav-text">If-None-Match</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#页面缓存的一些解决方法"><span class="nav-number">3.</span> <span class="nav-text">页面缓存的一些解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#比较简单解决方法"><span class="nav-number">3.1.</span> <span class="nav-text">比较简单解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#另一解决方法-未实践"><span class="nav-number">3.2.</span> <span class="nav-text">另一解决方法(未实践)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前使用解决办法"><span class="nav-number">3.3.</span> <span class="nav-text">目前使用解决办法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">3.3.1.</span> <span class="nav-text">原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#总结"><span class="nav-number">3.3.2.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通过插件添加md5码来防止缓存"><span class="nav-number">3.3.2.1.</span> <span class="nav-text">通过插件添加md5码来防止缓存</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">0.0ming</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
