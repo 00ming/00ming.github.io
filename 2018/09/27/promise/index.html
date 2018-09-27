@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="0.0ming的闲情日志">
-<meta property="og:url" content="00ming.github.io/index.html">
+<meta name="description" content="promise/‘prɔmis/  n.诺言;指望vt.允诺大概意思就是这个一定会做完的,至于什么时候做完就再说吧 理解Promise阮一峰在《ECMAScript 6入门》中是这样介绍Promise的  Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。 所">
+<meta property="og:type" content="article">
+<meta property="og:title" content="promise">
+<meta property="og:url" content="00ming.github.io/2018/09/27/promise/index.html">
 <meta property="og:site_name" content="0.0ming的闲情日志">
+<meta property="og:description" content="promise/‘prɔmis/  n.诺言;指望vt.允诺大概意思就是这个一定会做完的,至于什么时候做完就再说吧 理解Promise阮一峰在《ECMAScript 6入门》中是这样介绍Promise的  Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。 所">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://pbyegcye6.bkt.clouddn.com/Promise.png">
+<meta property="og:image" content="http://pbyegcye6.bkt.clouddn.com/Promise2.png">
+<meta property="og:updated_time" content="2018-09-27T08:13:34.507Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="0.0ming的闲情日志">
+<meta name="twitter:title" content="promise">
+<meta name="twitter:description" content="promise/‘prɔmis/  n.诺言;指望vt.允诺大概意思就是这个一定会做完的,至于什么时候做完就再说吧 理解Promise阮一峰在《ECMAScript 6入门》中是这样介绍Promise的  Promise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了Promise对象。 所">
+<meta name="twitter:image" content="http://pbyegcye6.bkt.clouddn.com/Promise.png">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="00ming.github.io/"/>
+  <link rel="canonical" href="00ming.github.io/2018/09/27/promise/"/>
 
 
 
 
 
-  <title>0.0ming的闲情日志</title>
+  <title>promise | 0.0ming的闲情日志</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/27/promise/" itemprop="url">promise</a></h1>
+          <h1 class="post-title" itemprop="name headline">promise</h1>
         
 
         <div class="post-meta">
@@ -298,9 +302,7 @@
       
 
       
-        
-          
-            <p>promise/‘prɔmis/ <br> n.诺言;指望<br>vt.允诺<br>大概意思就是这个一定会做完的,至于什么时候做完就再说吧</p>
+        <p>promise/‘prɔmis/ <br> n.诺言;指望<br>vt.允诺<br>大概意思就是这个一定会做完的,至于什么时候做完就再说吧</p>
 <h2 id="理解Promise"><a href="#理解Promise" class="headerlink" title="理解Promise"></a>理解Promise</h2><p>阮一峰在<a href="http://es6.ruanyifeng.com/" target="_blank" rel="noopener">《ECMAScript 6入门》</a>中是这样介绍<code>Promise</code>的</p>
 <ul>
 <li><code>Promise</code> 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大。它由社区最早提出和实现，ES6 将其写进了语言标准，统一了用法，原生提供了<code>Promise</code>对象。</li>
@@ -352,8 +354,6 @@
 <p>这是当年我写的一段垃圾代码,虽然能够执行但是可读性很差<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">function checkCouponCode () &#123;</span><br><span class="line">    let p = new Promise(function (resolve, reject) &#123;</span><br><span class="line">        _this.$refs.ruleForm.validateField(&apos;couponCode&apos;, err =&gt; &#123;</span><br><span class="line">            if (err === &apos;&apos;) &#123;</span><br><span class="line">                resolve()</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                reject(err)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;)</span><br><span class="line">    return p</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">checkCouponCode().then(() =&gt; &#123;</span><br><span class="line">  // 验证优惠券</span><br><span class="line">&#125;).catch(err =&gt; &#123;</span><br><span class="line">  // 判断错误的类型</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
 <p>这样改了后可读性就增加很多了<br><a href="https://promisesaplus.com/" target="_blank" rel="noopener">Promises/A+规范</a></p>
 
-          
-        
       
     </div>
     
@@ -370,290 +370,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="00ming.github.io/2018/09/18/restful API/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="0.0ming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="0.0ming的闲情日志">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/18/restful API/" itemprop="url">RESTful API</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-18T15:30:43+08:00">
-                2018-09-18
-              </time>
+              <a href="/2018/09/18/restful API/" rel="next" title="RESTful API">
+                <i class="fa fa-chevron-left"></i> RESTful API
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>表现层状态转换（REST，英文：Representational State Transfer）是Roy Thomas Fielding博士于2000年在他的博士论文 中提出来的一种万维网软件架构风格，目的是便于不同软件/程序在网络（例如互联网）中互相传递信息。表现层状态转换（REST，英文：Representational State Transfer）是根基于超文本传输协议(HTTP)之上而确定的一组约束和属性，是一种设计提供万维网络服务的软件构建风格。匹配或兼容于这种架构风格(简称为 REST 或 RESTful)的网络服务，允许客户端发出以统一资源标识符访问和操作网络资源的请求，而与预先定义好的无状态操作集一致化。==需要注意的是，REST是设计风格而不是标准==.</p>
-<p><a href="http://www.ruanyifeng.com/blog/2011/09/restful.html" target="_blank" rel="noopener">要理解RESTful架构，最好的方法就是去理解Representational State Transfer这个词组到底是什么意思，它的每一个词代表了什么涵义</a></p>
-<p>## </p>
-<h3 id="看http-method就知道干什么"><a href="#看http-method就知道干什么" class="headerlink" title="看http method就知道干什么"></a>看http method就知道干什么</h3><h5 id="GET"><a href="#GET" class="headerlink" title="GET"></a>GET</h5><ul>
-<li>安全且幂等 (幂等的介绍可以参考:<a href="https://www.cnblogs.com/duhuo/p/4245202.html" target="_blank" rel="noopener">编程中的幂等性 — HTTP幂等性</a>)</li>
-<li>获取表示</li>
-<li>可以被缓存<h5 id="POST"><a href="#POST" class="headerlink" title="POST"></a>POST</h5></li>
-<li>不安全且不幂等</li>
-<li>使用服务端管理的（自动产生）的实例号创建资源</li>
-<li>创建子资源</li>
-<li>部分更新资源</li>
-<li>如果没有被修改，则不更新资源（<a href="https://baike.baidu.com/item/%E4%B9%90%E8%A7%82%E9%94%81/7146502" target="_blank" rel="noopener">乐观锁</a>）<h5 id="PUT"><a href="#PUT" class="headerlink" title="PUT"></a>PUT</h5></li>
-<li>不安全但幂等</li>
-<li>用客户端管理的实例号创建一个资源  </li>
-<li>通过替换的方式更新资源  </li>
-<li>如果未被修改，则更新资源（乐观锁）<h5 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h5></li>
-<li>不安全但幂等</li>
-<li>删除资源</li>
-</ul>
-<h5 id="POST-和-PUT-都可以用于创建和修改资源，它们的区别是什么呢？"><a href="#POST-和-PUT-都可以用于创建和修改资源，它们的区别是什么呢？" class="headerlink" title="POST 和 PUT 都可以用于创建和修改资源，它们的区别是什么呢？"></a>POST 和 PUT 都可以用于创建和修改资源，它们的区别是什么呢？</h5><p>最大的区别就是 <code>PUT</code> 是幂等 而 <code>POST</code>不是<br>这就决定的他们是使用上的区别</p>
-<p>在创建资源时，<code>PUT</code>可以指定资源路径，<code>POST</code>无法指定资源路径。<br>因而，<code>PUT</code>是幂等的操作，即重复操作不会产生变化，10次<code>PUT</code> 的创建请求与1次<code>PUT</code> 的创建请求相同，只会创建一个资源，其实后面9次的请求只是对已创建资源的更新，且更新内容与原内容相同，所以不会产生变化。相当于<code>x = 5</code>执行多少次<code>x</code>的值都是5</p>
-<p><code>POST</code> 的重复操作截然不同，10次<code>POST</code>请求将会创建10个资源。相当于<code>x ++</code>,每次执行<code>x</code>的值都会变化</p>
-<p>简单来说<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET     获取一个资源 </span><br><span class="line">POST    添加一个资源 </span><br><span class="line">PUT     修改一个资源 </span><br><span class="line">DELETE  删除一个资源</span><br></pre></td></tr></table></figure></p>
-<h3 id="看Url就知道要什么"><a href="#看Url就知道要什么" class="headerlink" title="看Url就知道要什么"></a>看Url就知道要什么</h3><p>REST 是面向资源的，这个概念非常重要，而资源是通过 URI 进行暴露。<br>http method是动词表示要做什么,URL中只使用名词来指定资源且推荐用复数,表示动作的对象.<br>在知乎上看到这么一段<a href="https://www.zhihu.com/question/28557115/answer/47846156" target="_blank" rel="noopener">原文</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GET /rest/api/getDogs --&gt; GET /rest/api/dogs 获取所有小狗狗 </span><br><span class="line">GET /rest/api/addDogs --&gt; POST /rest/api/dogs 添加一个小狗狗 </span><br><span class="line">GET /rest/api/editDogs/:dog_id --&gt; PUT /rest/api/dogs/:dog_id 修改一个小狗狗 </span><br><span class="line">GET /rest/api/deleteDogs/:dog_id --&gt; DELETE /rest/api/dogs/:dog_id 删除一个小狗狗</span><br></pre></td></tr></table></figure></p>
-<p><code>/rest/api/dogs/</code>只表示资源的地址,通过http method来确定操作</p>
-<h3 id="看http-status-code就知道结果如何"><a href="#看http-status-code就知道结果如何" class="headerlink" title="看http status code就知道结果如何"></a>看http status code就知道结果如何</h3><p>使用正确的HTTP Status Code表示访问状态：<a href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html" target="_blank" rel="noopener">HTTP/1.1: Status Code Definitions</a></p>
-<p>设计方法可以学习阮一峰老师的<br><a href="http://www.ruanyifeng.com/blog/2014/05/restful_api.html" target="_blank" rel="noopener">RESTful API 设计指南</a></p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><ul>
-<li><a href="https://mccxj.github.io/blog/20130530_introduce-to-rest.html" target="_blank" rel="noopener">理解RESTFul架构 | 小毛的胡思乱想</a></li>
-<li><a href="https://www.zhihu.com/question/28557115" target="_blank" rel="noopener">怎样用通俗的语言解释REST，以及RESTful？ - 知乎</a></li>
-<li><a href="https://blog.csdn.net/maxmao1024/article/details/79591726" target="_blank" rel="noopener">Restful API 以及对 Put/Post 区别理解 - CSDN博客</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/30396391" target="_blank" rel="noopener">如何给老婆解释什么是RESTful</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="00ming.github.io/2018/08/29/缓存/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="0.0ming">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="0.0ming的闲情日志">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/缓存/" itemprop="url">浏览器缓存</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-29T16:02:10+08:00">
-                2018-08-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="浏览器缓存"><a href="#浏览器缓存" class="headerlink" title="浏览器缓存"></a>浏览器缓存</h1><p>浏览器缓存分为两种，分别为 <strong>强缓存</strong>（也称本地缓存） 和 <strong>协商缓存</strong>（也称弱缓存）。</p>
-<p>对于强缓存和协商缓存，判定过程如下：</p>
-<p>浏览器加载资源时，先根据 response 的 header 中某些字段判断是否命中强缓存，若命中，浏览器直接从缓存中读取资源，不会发送请求到服务器。<br>当强缓存没有命中的时候，浏览器一定会发送一个请求到服务器，此时服务器根据 resquest 的 header 中某些字段判断是否命中协商缓存，若命中，服务器返回请求，但不会返回这个资源的数据，而是告诉客户端可以直接从缓存中加载这个资源。<br>对于强缓存和协商缓存，共同点在于，若命中，它们都是从客户端缓存中加载资源，而不是从服务器加载资源数据；而不同点在于，强缓存不发请求到服务器，协商缓存会发请求到服务器以咨询缓存是否过期。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/29/缓存/#more" rel="contents">
-              Read more &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -663,10 +401,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -674,6 +413,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -694,8 +437,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -737,6 +489,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#理解Promise"><span class="nav-number">1.</span> <span class="nav-text">理解Promise</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Promise的特点"><span class="nav-number">2.</span> <span class="nav-text">Promise的特点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#术语"><span class="nav-number">2.1.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态"><span class="nav-number">2.2.</span> <span class="nav-text">状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#then方法"><span class="nav-number">2.3.</span> <span class="nav-text">then方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6中用法"><span class="nav-number">3.</span> <span class="nav-text">ES6中用法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#catch方法"><span class="nav-number">3.1.</span> <span class="nav-text">catch方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#all方法"><span class="nav-number">3.2.</span> <span class="nav-text">all方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#race方法"><span class="nav-number">3.3.</span> <span class="nav-text">race方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -870,6 +638,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
