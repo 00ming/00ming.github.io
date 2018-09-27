@@ -1,8 +1,9 @@
 ---
-title: promise
+title: Promise
 date: 2018-09-27 16:02:10
 tags:
 ---
+# Promise
 promise/‘prɔmis/ <br> n.诺言;指望<br>vt.允诺
 大概意思就是这个一定会做完的,至于什么时候做完就再说吧
 ## 理解Promise
