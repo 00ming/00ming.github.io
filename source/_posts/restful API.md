@@ -1,7 +1,7 @@
 ---
 title: RESTful API
 date: 2018-09-18 15:30:43
-tags:
+tags: API
 ---
 # RESTful API
 表现层状态转换（REST，英文：Representational State Transfer）是Roy Thomas Fielding博士于2000年在他的博士论文 中提出来的一种万维网软件架构风格，目的是便于不同软件/程序在网络（例如互联网）中互相传递信息。表现层状态转换（REST，英文：Representational State Transfer）是根基于超文本传输协议(HTTP)之上而确定的一组约束和属性，是一种设计提供万维网络服务的软件构建风格。匹配或兼容于这种架构风格(简称为 REST 或 RESTful)的网络服务，允许客户端发出以统一资源标识符访问和操作网络资源的请求，而与预先定义好的无状态操作集一致化。==需要注意的是，REST是设计风格而不是标准==.
@@ -41,7 +41,7 @@ tags:
 
 
 简单来说
-```
+```js
 GET     获取一个资源 
 POST    添加一个资源 
 PUT     修改一个资源 
@@ -51,7 +51,7 @@ DELETE  删除一个资源
 REST 是面向资源的，这个概念非常重要，而资源是通过 URI 进行暴露。
 http method是动词表示要做什么,URL中只使用名词来指定资源且推荐用复数,表示动作的对象.
 在知乎上看到这么一段[原文](https://www.zhihu.com/question/28557115/answer/47846156)
-```
+```js
 GET /rest/api/getDogs --> GET /rest/api/dogs 获取所有小狗狗 
 GET /rest/api/addDogs --> POST /rest/api/dogs 添加一个小狗狗 
 GET /rest/api/editDogs/:dog_id --> PUT /rest/api/dogs/:dog_id 修改一个小狗狗 

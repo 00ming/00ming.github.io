@@ -1,7 +1,7 @@
 ---
 title: Promise
 date: 2018-09-27 16:02:10
-tags:
+tags: ES6
 ---
 # Promise
 promise/‘prɔmis/ <br> n.诺言;指望<br>vt.允诺
@@ -52,7 +52,7 @@ promise/‘prɔmis/ <br> n.诺言;指望<br>vt.允诺
 ## ES6中用法
 ![img](http://pbyegcye6.bkt.clouddn.com/Promise.png)
 Promise是一个构造函数，自己身上有all、reject、resolve这几个眼熟的方法，原型上有then、catch等同样很眼熟的方法。这么说用Promise new出来的对象肯定就有then、catch方法
-```
+```js
 var p = new Promise(function(resolve, reject){
     //做一些异步操作
     setTimeout(function(){
@@ -69,7 +69,7 @@ var p = new Promise(function(resolve, reject){
 - 另一个特殊的用法是可以当做`than`方法的第二个参数来用,用来指定 `reject` 的回调,也就是术语中`reason`
 ###  `all`方法
 Promise 的 all 方法提供了并行执行异步操作的能力，并且在所有异步操作执行完后才执行回调。
-```
+```js
 function a() {
   var p = new Promise(function (resolve, reject) {        //做一些异步操作
     setTimeout(function () {
@@ -97,7 +97,7 @@ Promise
 ### `race`方法
 `race`方法和`all`方法调用的方式是一样的
 
-```
+```js
 function a() {
   var p = new Promise(function (resolve, reject) {        
     var res = getInformation1();//通过接口获取一些信息
@@ -126,7 +126,7 @@ Promise
 
 
 一般我们用Promise的时候一般是包在一个函数中，在需要的时候去运行这个函数
-```
+```js
 function checkCouponCode () {
     let p = new Promise(function (resolve, reject) {
         _this.$refs.ruleForm.validateField('couponCode', err => {
@@ -137,7 +137,7 @@ function checkCouponCode () {
 }
 ```
 下面是调用的方法
-```
+```js
 checkCouponCode().then(data => {
     if (data !== '') {
         callback(new Error('先输入或者选择优惠券编码'));
@@ -153,7 +153,7 @@ checkCouponCode().then(data => {
 })
 ```
 这是当年我写的一段垃圾代码,虽然能够执行但是可读性很差
-```
+```js
 function checkCouponCode () {
     let p = new Promise(function (resolve, reject) {
         _this.$refs.ruleForm.validateField('couponCode', err => {
