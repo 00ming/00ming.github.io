@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>00ming.github.io/tags/index.html</loc>
+    
+    <lastmod>2018-09-28T08:03:19.077Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>00ming.github.io/2018/08/29/%E7%BC%93%E5%AD%98/</loc>
     
     <lastmod>2018-09-28T07:52:23.111Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>00ming.github.io/2018/09/27/promise/</loc>
     
     <lastmod>2018-09-28T07:51:23.175Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>00ming.github.io/tags/index.html</loc>
-    
-    <lastmod>2018-09-28T06:41:02.419Z</lastmod>
     
   </url>
   
